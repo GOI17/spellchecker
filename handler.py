@@ -1,10 +1,13 @@
 import json
 from spell_checker import spell_check_sentence
 
+
 def spell_check(event, context):
+    input_sentence = json.loads(event.get("body")).get("text")
+    correct_sentence = spell_check_sentence(input_sentence)
+
     body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
+        "text": correct_sentence
     }
 
     response = {
@@ -13,10 +16,3 @@ def spell_check(event, context):
     }
 
     return response
-    
-    
-
-
-
-
-
