@@ -9,10 +9,10 @@ const usePostRequest = () => {
     setService({ status: 'loading' });
 
     return new Promise((resolve, reject) => {
-    fetch('http://localhost:3000/dev/spellcheck', {
-      method: 'POST',
-      body: `{"text": "${request.input}"}`
-    })
+      fetch('http://localhost:3000/dev/spellcheck', {
+        method: 'POST',
+        body: `{"text": "${request.input}"}`
+      })
       .then(response => response.json())
       .then(response => {
         setService({ status: 'loaded', payload: response });
