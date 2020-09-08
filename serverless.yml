@@ -58,13 +58,18 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
+  post:
     handler: handler.spell_check
     events:
       - http:
           path: spellcheck
           method: post
-
+  get:
+    handler: handler.history
+    events:
+      - http:
+          path: history
+          method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
