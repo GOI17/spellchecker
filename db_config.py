@@ -34,13 +34,14 @@ def get_data():
     try:
         conn = sqlite3.connect("spellchecker.db")
         print("Opened Database")
-        sql = "SELECT HOST, METHOD, INPUT FROM REQUESTS"
+        sql = "SELECT HOST 'host', METHOD 'method', INPUT 'input'\
+            FROM REQUESTS"
+        conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         cursor.execute(sql)
         rows = cursor.fetchall()
-        conn.commit()
 
-        return rows
+        return [dict(row) for row in rows]
     except Error:
         raise Error
     finally:

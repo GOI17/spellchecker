@@ -2,7 +2,9 @@
   "name": "backend",
   "description": "",
   "version": "0.1.0",
-  "dependencies": {},
+  "dependencies": {
+    "create-react-app": "^3.4.1"
+  },
   "devDependencies": {
     "serverless": "^1.80.0",
     "serverless-offline": "^6.7.0"
