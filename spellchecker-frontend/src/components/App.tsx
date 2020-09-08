@@ -4,13 +4,13 @@ import useGetRequests from '../services/get.history.service';
 import usePostRequest from '../services/post.spellchecker.service';
 
 const App: React.FC<{}> = () => {
-  const fetchedData = useGetRequests();
   const initialRequestState: Request = {
     host: '',
     method: '',
     input: ''
   };
   const [ request, setRequest ] = useState<Request>(initialRequestState);
+  const fetchedData = useGetRequests(request);
   const { service, publishRequest } = usePostRequest();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
